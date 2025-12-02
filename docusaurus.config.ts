@@ -101,7 +101,20 @@ const config: Config = {
   },
 
   themes: ['docusaurus-theme-openapi-docs', '@docusaurus/theme-mermaid'],
-
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {name: "twitter:title", content: "Tangle"},
+    },
+    {
+      tagName: 'meta',
+      attributes: {name: "twitter:description", content: "Tangle is a system that helps teams build, run and share Machine Learning pipelines visually, without having to set up development environment."},
+    },
+    {
+      tagName: 'meta',
+      attributes: {name: "twitter:image", content: "https://tangleml.com/img/icon.png"},
+    },
+  ],
   themeConfig: {
     colorMode: {
       defaultMode: "dark",
