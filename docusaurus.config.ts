@@ -107,6 +107,11 @@ const config: Config = {
       defaultMode: "dark",
     },
     image: "img/icon.png",
+    metadata: [
+      {name: "twitter:title", content: "Tangle"},
+      {name: "twitter:description", content: "Tangle is a system that helps teams build, run and share Machine Learning pipelines visually, without having to set up development environment."},
+      {name: "twitter:image", content: "https://tangleml.com/img/icon.png"},
+    ],
     navbar: {
       logo: {
         alt: `${APP_NAME} Logo`,
