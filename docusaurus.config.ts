@@ -101,6 +101,7 @@ const config: Config = {
   },
 
   themes: ['docusaurus-theme-openapi-docs', '@docusaurus/theme-mermaid'],
+/*  
   headTags: [
     {
       tagName: 'meta',
@@ -115,6 +116,7 @@ const config: Config = {
       attributes: {name: "twitter:image", content: "https://tangleml.com/img/icon.png"},
     },
   ],
+*/
   themeConfig: {
     colorMode: {
       defaultMode: "dark",
