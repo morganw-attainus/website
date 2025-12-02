@@ -125,7 +125,7 @@ const config: Config = {
     metadata: [
       {name: "twitter:title", content: "Tangle"},
       {name: "twitter:description", content: "Tangle is a system that helps teams build, run and share Machine Learning pipelines visually, without having to set up development environment."},
-      {name: "twitter:image", content: "https://tangleml.com/img/icon.png"},
+      {name: "twitter:image", content: "https://tangleml.com/img/tangle_black.png"},
     ],
     navbar: {
       logo: {
