@@ -1,124 +1,63 @@
 ---
 id: pipelines-persistence
 title: Pipelines Persistence
+description: Learn how TangleML saves pipelines in browser storage versus backend storage, including auto-save and export options.
 ---
 
-Pipeline persistence in TangleML Studio App works through a dual-layer system that balances local editing flexibility with centralized storage for collaboration. This guide explains how your pipelines are saved, shared, and managed across different stages of their lifecycle.
+The editor saves your pipeline locally when editing, and saves it to the backend for all users to view when you submit it for execution. 
 
-:::tip
-Think of the Editor as your personal drafting space and Pipeline Runs as your published, shareable versions.
+:::info
+This means pipelines stored in the editor will be lost if you clear browser data or use a different browser. You should always export important pipelines or submit them as runs for permanent storage.
 :::
 
-## The Two-Layer Persistence Model
+## Local vs backend storage
 
-### Local Storage (Editor Mode)
+Think of the Editor as your personal drafting space and pipeline runs as your published, shareable versions.
 
-The Pipeline Editor automatically saves all your changes to your browser's local storage. This provides:
+### Local storage (editor mode)
 
-- **Instant saving** - Every change is preserved immediately
-- **Draft-like workflow** - Work on pipelines without committing to a final version
-- **Privacy** - Your work-in-progress remains local to your machine
-- **Offline capability** - Continue editing without backend connectivity
+The pipeline editor automatically saves all your changes to your browser's local storage. This provides:
+
+- **Instant saving**: Every change is preserved immediately
+- **Draft-like workflow**: Work on pipelines without committing to a final version
+- **Privacy**: Your work-in-progress remains local to your machine
+- **Offline capability**: Continue editing without backend connectivity
+
+Editor changes are stored locally in your browser. You cannot share pipelines directly via URL links while they're in the Editor. To share your work, you must either export the pipeline or submit it as a pipeline run.
 
 <img 
   src={require("./assets/Editor.png").default} 
-  alt="Pipeline Editor screenshot" 
+  alt="pipeline editor screenshot" 
   style={{ width: "100%", borderRadius: "6px",  }} 
 />
 
+### Backend storage (pipeline runs)
 
-:::warning
-Editor changes are stored locally in your browser. You cannot share pipelines directly via URL links while they're in the Editor. To share your work, you must either export the pipeline or submit it as a Pipeline Run.
-:::
+When you submit a pipeline for execution, it becomes a pipeline run stored on the backend:
 
-### Backend Storage (Pipeline Runs)
+- **Permanent storage**: Preserved on the server infrastructure
+- **Shareable**: Each run gets a unique identifier for sharing
+- **Version history**: Track different iterations of your pipeline
+- **Team collaboration**: Other team members can access and review runs
 
-When you submit a pipeline for execution, it becomes a Pipeline Run stored on the backend:
-
-- **Permanent storage** - Preserved on the server infrastructure
-- **Shareable** - Each run gets a unique identifier for sharing
-- **Version history** - Track different iterations of your pipeline
-- **Team collaboration** - Other team members can access and review runs
-
-:::info
-All Pipeline Runs are available to anyone with the access to your instance of the TangleML Studio App.
-:::
+All pipeline runs are available to anyone with the access to your instance of the TangleML Studio App.
 
 <img 
   src={require("./assets/PipelineRun.png").default} 
-  alt="Pipeline Run screenshot" 
+  alt="pipeline run screenshot" 
   style={{ width: "100%", borderRadius: "6px",  }} 
 />
 
+## Managing multiple pipeline versions
 
-## Key Features Comparison
+### Save as feature
 
-| Feature              | Editor (Local)                 | Pipeline Run (Backend) |
-| -------------------- | ------------------------------ | ---------------------- |
-| **Storage Location** | Browser local storage          | Server database        |
-| **Shareable**        | ❌ No                          | ✅ Yes                 |
-| **Requires Network** | ❌ No                          | ✅ Yes                 |
-| **Version Control**  | Limited (current version only) | Full history           |
-| **Persistence**      | Until browser data cleared     | Permanent              |
-| **Collaboration**    | Via export/import              | Direct sharing         |
+You can use **Save As** to experiment with different pipeline configurations without affecting the original:
 
-## Auto-Save Functionality
-
-The Editor continuously saves your work without manual intervention:
-
-- Changes are saved immediately as you make them
-- No need to manually save your progress
-- Visual indicators confirm when changes are saved
-- Recovery from browser crashes or accidental closures
-
-
-:::tip
-The auto-save feature ensures you never lose work due to unexpected interruptions. Your pipeline state is preserved even if you accidentally close the browser tab.
-:::
-
-## Undo/Redo System
-
-The Editor maintains a history of your recent actions:
-
-- **Up to 50 actions** stored in memory
-- **Session-based** - Available during your current editing session
-- **Quick recovery** - Instantly revert or reapply changes
-- **Keyboard shortcuts** - Use standard undo/redo shortcuts for efficiency
-
-:::warning
-Undo/Redo history is **session-only** and will be lost when:
-
-- The page is refreshed
-- The browser tab is closed
-- You navigate away from the Editor
-  :::
-
-<video
-  src={require("./assets/UndoRedo.mov").default}
-  controls
-  autoPlay
-  loop
-  muted
-  playsInline
-  style={{
-    width: "100%",
-    borderRadius: "6px",
-  }}
->
-  Your browser does not support the video tag.
-</video>
-
-
-## Managing Multiple Pipeline Versions
-
-### Save As Feature
-
-Create copies of your pipeline while preserving the original:
-
-1. Click on the pipeline name or menu
-2. Select "Save Pipeline As"
-3. Enter a new name for the copy
-4. The new version becomes your active pipeline
+1. Click on the pipeline name or menu.
+2. Select **Save Pipeline As**.
+3. Enter a new name for the copy.
+4. The new version becomes your active pipeline.
 
 <video
   src={require("./assets/SaveAs.mov").default}
@@ -135,30 +74,26 @@ Create copies of your pipeline while preserving the original:
   Your browser does not support the video tag.
 </video>
 
-:::tip
-Use "Save As" to experiment with different pipeline configurations without affecting your original design.
-:::
-
-### Export and Import
+### Export and import
 
 Share pipelines before creating runs through the export/import workflow:
 
-#### Exporting Pipelines
+#### Exporting pipelines
 
-1. Open your pipeline in the Editor
-2. Click "Export Pipeline" from the pipeline actions menu
-3. Save the YAML file to your local machine
+1. Open your pipeline in the editor.
+2. Click **Export pipeline** from the pipeline actions menu.
+3. Save the YAML file to your local machine.
 
-#### Importing Pipelines
+#### Importing pipelines
 
-1. Click "Import Pipeline" in the Editor
+1. Click **Import pipeline** in the Editor.
 2. Either:
    - Select a YAML file from your computer
    - Paste YAML content directly
 
 <img
   src={require("./assets/ImportPipeline.png").default}
-  alt="Import Pipeline dialog"
+  alt="Import pipeline dialog"
   style={{
     width: "100%",
     borderRadius: "6px",
@@ -166,48 +101,11 @@ Share pipelines before creating runs through the export/import workflow:
 />
 
 
-## Accessing Your Pipelines
+## Accessing your pipelines
 
-### My Pipelines Tab
+Your locally saved pipelines are accessible from the **Home** screen:
 
-All your locally saved pipelines are accessible from the Home screen:
-
-1. Navigate to the Home screen
-2. Click on the "My Pipelines" tab
-3. View all pipelines stored in your browser
-4. Click any pipeline to open it in the Editor
-
-<img
-  src={require("./assets/MyPipelines.png").default}
-  alt="My Pipelines tab on the Home screen"
-  style={{
-    width: "100%",
-    borderRadius: "6px",
-  }}
-/>
-
-:::tip
-The "My Pipelines" tab shows only pipelines saved in your current browser. If you use multiple devices or browsers, each will have its own set of locally saved pipelines.
-:::
-
-
-## Summary
-
-:::warning
-**Browser Data Clearing**: Pipelines stored in the Editor will be lost if you:
-
-- Clear browser data/cache
-- Use browser incognito/private mode
-- Uninstall or reset your browser
-
-Always export important pipelines or submit them as runs for permanent storage.
-:::
-
-The dual-layer persistence model in TangleML Studio App provides flexibility for individual work while enabling team collaboration:
-
-- **Editor Mode** - Your personal workspace with instant local saves
-- **Pipeline Runs** - Committed, shareable versions stored on the backend
-- **Export/Import** - Bridge the gap when you need to share drafts
-- **Auto-save & Undo/Redo** - Productivity features for efficient editing
-
-Remember: treat the Editor as your drafting space and Pipeline Runs as your published work. This mental model will help you effectively manage your pipeline development workflow.
+1. Navigate to the Home Screen.
+2. Click on the **My Pipelines** tab.
+3. View all pipelines stored in your browser.
+4. Click any pipeline to open it in the editor.
