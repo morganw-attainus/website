@@ -250,18 +250,18 @@ function ContactSection() {
               issues, or explore the codebase on GitHub.`}
             </p>
             <div className={styles.repoLinks}>
-              <Link to={GITHUB_FRONTEND_REPO_URL} className={styles.repoLink}>
-                <span className={styles.iconContainer}><img src="/icons/wallpaper.svg" alt="Frontend Repository" className={styles.contactIcon}/></span>
-                <div>
-                  <strong>Frontend Repository</strong>
-                  <p>{GITHUB_FRONTEND_REPO_URL.split("https://").pop()}</p>
-                </div>
-              </Link>
               <Link to={GITHUB_BACKEND_REPO_URL} className={styles.repoLink}>
                 <span className={styles.iconContainer}><img src="/icons/box.svg" alt="Backend Repository" className={styles.contactIcon}/></span>
                 <div>
                   <strong>Backend Repository</strong>
                   <p>{GITHUB_BACKEND_REPO_URL.split("https://").pop()}</p>
+                </div>
+              </Link>
+              <Link to={GITHUB_FRONTEND_REPO_URL} className={styles.repoLink}>
+                <span className={styles.iconContainer}><img src="/icons/wallpaper.svg" alt="Frontend Repository" className={styles.contactIcon}/></span>
+                <div>
+                  <strong>Frontend Repository</strong>
+                  <p>{GITHUB_FRONTEND_REPO_URL.split("https://").pop()}</p>
                 </div>
               </Link>
             </div>
